@@ -2,23 +2,23 @@ import yfinance as yf
 import pandas as pd
 
 def baixar_dados(ticker: str, anos: int = 10) -> pd.DataFrame:
-    # Baixar dados históricos de ações usando yfinance
-    # ticker: símbolo da ação (ex: "AAPL" para Apple)
-    # anos: número de anos de dados a serem baixados
-    # Retorna um DataFrame com os dados de fechamento diário
+    # Download historical stock data using yfinance
+    # ticker: stock symbol (e.g., "AAPL" for Apple)
+    # anos: number of years of data to download
+    # Returns a DataFrame with daily closing data
     df = yf.Ticker(ticker).history(period=f"{anos}y", interval="1d")
-    # Filtra apenas a coluna do fechamento diário
+    # Filter only the daily closing column
     df = df[['Close']].dropna()
-    # Renomeia a coluna para 'close'
+    # Rename the column to 'close'
     df.columns = ['close']
     return df
 
-# Salvar o DataFrame em um arquivo CSV
+# Save the DataFrame to a CSV file
 def salvar_csv(df: pd.DataFrame, caminho: str = "data/dados_diarios.csv"):
     df.to_csv(caminho)
 
-# Função para agregar os dados diários em mensais
-# A função recebe um DataFrame com dados diários e retorna um DataFrame com dados mensais
+# Function to aggregate daily data into monthly data
+# The function receives a DataFrame with daily data and returns a DataFrame with monthly data
 def agregacao_mensal(df: pd.DataFrame) -> pd.DataFrame:
     df.index = pd.to_datetime(df.index).tz_localize(None)
     df_mensal = df.resample('M').last()

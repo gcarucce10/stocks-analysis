@@ -24,11 +24,11 @@ Predict the **next month's closing price** of a stock (e.g., AAPL), using time s
 
 1. **Data Collection**  
    - Daily stock data collected via `yfinance`  
-   - Saved to `data/daily_data.csv`
+   - Saved to `data/dados_diarios.csv`
 
 2. **Monthly Aggregation**  
    - Converts daily data to monthly frequency  
-   - Saved to `data/monthly_data.csv`
+   - Saved to `data/dados_mensais.csv`
 
 3. **Descriptive Analysis**  
    - Monthly statistics and quantile computation

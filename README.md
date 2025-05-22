@@ -1,6 +1,6 @@
 # 📈 Stock Price Prediction with Machine Learning
 
-This project aims to apply **data science** and **machine learning** techniques to forecast the **monthly closing price** of a stock based on historical data from the past 10 years.
+This project aims to apply **data science** and **machine learning** and a **deep learning** techniques to forecast the **monthly closing price** of a stock based on historical data from the past 10 years.
 
 ---
 

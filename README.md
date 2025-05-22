@@ -16,7 +16,6 @@ Predict the **next month's closing price** of a stock (e.g., AAPL), using time s
 - Pandas, NumPy, Matplotlib, Seaborn  
 - Scikit-learn  
 - Yahoo Finance (via `yfinance`)  
-- Jupyter Notebook  
 - Git + GitHub  
 
 ---
@@ -34,22 +33,8 @@ Predict the **next month's closing price** of a stock (e.g., AAPL), using time s
 3. **Descriptive Analysis**  
    - Monthly statistics and quantile computation
 
-4. **Feature Engineering**  
-   - Calculates returns, moving averages, volatility, and lag variables  
-   - Saved to `data/features_data.csv`
-
-5. **Modeling (in progress)**  
+4. **Modeling (in progress)**  
    - Linear Regression, ARIMA, LSTM (future)
-
----
-
-## 📊 Example of Engineered Features
-
-- `retorno`: monthly percentage return  
-- `mm_3`, `mm_6`: moving averages  
-- `vol_3`: volatility  
-- `close_lag1`: lagged closing price  
-- `target`: next month’s closing price (prediction target)
 
 ---
 

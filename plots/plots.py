@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Function to plot real and predicted monthly closing prices
+# Function to plot real and predicted monthly closing prices using Linear Regression
 def plot_monthly_closing_comparison_linear_regression():
     # Load the data from CSV files into DataFrames
     # df_mensal: real monthly closing prices
@@ -19,3 +19,22 @@ def plot_monthly_closing_comparison_linear_regression():
     plt.legend()
     plt.grid()
     plt.savefig("plots/fechamento_mensal_comparison.png")
+
+# Function to plot real and predicted monthly closing prices using Random Forest   
+def plot_monthly_closing_comparison_random_forest():
+    # Load the data from CSV files into DataFrames
+    # df_mensal: real monthly closing prices
+    # df_mensal_predicted_random_forest: predicted prices from random forest
+    df_mensal = pd.read_csv("/home/useradd/stocks-analysis/data/dados_mensais.csv")
+    df_mensal_predicted_random_forest = pd.read_csv("/home/useradd/stocks-analysis/data/dados_mensais_predicted_random_forest.csv")
+
+    # Build the plot using real and predicted data
+    plt.figure(figsize=(12, 6))
+    plt.plot(df_mensal["Date"], df_mensal["close"], label="Actual Closing Price", color="blue")
+    plt.plot(df_mensal_predicted_random_forest["Date"], df_mensal_predicted_random_forest["predicted"], label="Predicted Closing Price (Linear Regression)", color="red")
+    plt.title("AAPL Monthly Closing Price (2015-2025) and Random Forest Prediction")
+    plt.xlabel("Year")
+    plt.ylabel("Closing Price ($)")
+    plt.legend()
+    plt.grid()
+    plt.savefig("plots/fechamento_mensal_comparison_random_forest.png")

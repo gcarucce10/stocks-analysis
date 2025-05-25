@@ -1,9 +1,7 @@
 from src.preprocess import baixar_dados, salvar_csv, agregacao_mensal
-from linear_regression.pipeline_linear_regression import linear_regression_stock
-from random_forest_regression.pipeline_random_forest_regression import random_forest_stock
-from plots.plots import plot_monthly_closing_comparison_linear_regression
+from plots.plots import plot_monthly_closing_comparison_linear_regression, plot_monthly_closing_comparison_random_forest
+from lstm.pipeline_lstm import train_and_predict_lstm, evaluate_lstm_model
 import pandas as pd
-
 
 if __name__ == "__main__":
     # Download data from Yahoo Finance API and save as CSV (daily data) for the last 10 years
@@ -15,10 +13,17 @@ if __name__ == "__main__":
     salvar_csv(df_mensal, "data/dados_mensais.csv")
     
     # Linear regression method
-    linear_regression_stock()
+    # linear_regression_stock()
     
     # Random forest method
-    random_forest_stock()
+    # random_forest_stock()
     
     # Plotting the difference between the real and predicted monthly closing prices using linear regression
-    plot_monthly_closing_comparison_linear_regression()
+    # plot_monthly_closing_comparison_linear_regression()
+    
+    # Plotting the difference between the real and predicted monthly closing prices using random forest
+    # plot_monthly_closing_comparison_random_forest()
+    
+    # LSTM method
+    train_and_predict_lstm()
+    evaluate_lstm_model()
